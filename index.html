@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #0c1445; /* Deep blue background */
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-content: center;
+      }
+
+      .lunar-eclipse {
+        width: 40vw;
+        aspect-ratio: 1;
+        background-color: #311e56; /* Dark purple, resembling the lunar shadow */
+        display: grid;
+        place-content: center;
+        border-radius: 12px;
+        animation: eclipseAnimation 10s ease infinite;
+      }
+
+      @keyframes eclipseAnimation {
+        0%,
+        100% {
+          background-color: #311e56; /* Dark purple */
+        }
+
+        25% {
+          background-color: #5e4580; /* A lighter shade of purple */
+        }
+
+        50% {
+          background-color: #9c8dbb; /* Even lighter shade */
+        }
+
+        75% {
+          background-color: #5e4580; /* A lighter shade of purple */
+        }
+      }
+
+      .moon {
+        width: 18vw;
+        aspect-ratio: 1;
+        background-color: #d1d1d1; /* Light gray resembling the moon */
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: inherit;
+          width: inherit;
+          aspect-ratio: 1;
+          background-color: #6c6c6c; /* A slightly darker shade of gray */
+          animation: moonwalk 10s ease-in-out infinite;
+        }
+      }
+
+      @keyframes moonwalk {
+        0% {
+          transform: translateX(100%) scale(1);
+        }
+
+        50% {
+          transform: translateX(0%) scale(0.9);
+        }
+
+        100% {
+          transform: translateX(-100%) scale(0.9);
+        }
+      }
+    </style>
+    <title>Lunar Eclipse Effect</title>
+  </head>
+  <body>
+    <div class="lunar-eclipse">
+      <div class="moon"></div>
+    </div>
+  </body>
+</html>
